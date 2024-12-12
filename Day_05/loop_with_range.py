@@ -10,3 +10,4 @@ sum=0
 for add_num in range(1,101):
     sum += add_num
 print(sum)
+
