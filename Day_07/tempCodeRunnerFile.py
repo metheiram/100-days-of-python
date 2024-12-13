@@ -1,6 +1,80 @@
 #step o1 : create a word list choose a random word and store it in the variable and then print it 
 import random
+
+stages=[""" 
+ +---+
+ |   |
+ 0   |
+/|\  |
+/ \  |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+ 0   |
+/|\  |
+/    |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+ 0   |
+/|\  |
+     |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+ 0   |
+/|   |
+     |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+ 0   |
+ |   |
+     |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+ 0   |
+     |
+     |
+     |
+========
+ """,""" 
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+========
+ """
+]
+
+
+
+
+
+
+
+
+
 word_list=["Apple","pear","alice"]
+
+lives=6
+
+
+
+
 choosen_word = random.choice(word_list)
 print(choosen_word)
 
@@ -13,6 +87,8 @@ print(placeholder)
 
 #step 02 : take input from to guess the number in a lower case and store them into a variable 
 game_over= False
+
+correct_letter=[]
 while not game_over:
     guess= input("Guess a number:").lower()
 
@@ -24,13 +100,27 @@ while not game_over:
         if letter == guess:
         
             display += letter
+            correct_letter.append(letter)
+        elif letter in correct_letter:
+            display += letter
         else:
              display += "-"
     print(display)
 
 
+if guess not in choosen_word:
+    lives -= 1
+    if lives ==0:
+        print("you lose")
+
+
+
+
 if "-" not in display:
     game_over=True
     print("you win")
+
+
+    print(stages[lives])
 
     
